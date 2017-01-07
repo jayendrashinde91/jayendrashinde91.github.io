@@ -1,0 +1,486 @@
+ /* Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Jayendra Shinde
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+body {
+  background-color: #f2f2f2;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway";
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #f85c37;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/*---------------------------------------------------
+	3.1 Topbar
+---------------------------------------------------*/
+
+#section-topbar {
+	position: fixed;
+    top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10000;
+	overflow: visible;
+	font: normal 16px/24px  'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#section-topbar a {
+  color: #fff;
+}
+
+#topbar-inner {
+	background: #111;
+	line-height: 0;
+	text-align: center;
+    height: 62px;
+}
+
+
+/*
+	Top Bar
+
+	By default, top navigation bar uses "fixed" position
+*/
+#section-topbar ul#nav {
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+    height: 62px;
+
+	border-right: 1px solid #222;
+
+	/* For IE, the outcast */
+	zoom:1;
+	*display: inline;
+}
+
+#section-topbar ul#nav > li {
+	display: block;
+    float: left;
+    padding: 0;
+    height: 62px;
+}
+
+
+#section-topbar ul#nav a {
+  display: block;
+  font: normal 11px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  padding: 18px 20px 18px 20px;
+  border-left: 1px solid #222;
+  height: 62px;
+}
+
+	#section-topbar ul#nav a:hover {
+	  background: #222;
+	  text-decoration: none;
+	  border-left: 1px solid #111;
+      height: 62px;
+	}
+
+	#section-topbar ul#nav .active a {
+		background: #44bbaa;
+		border-left: 1px solid #111;
+        height: 62px;
+	}
+
+		#section-topbar ul#nav .active a:hover {
+			background: #44bbaa;
+            height: 62px;
+		}
+#section-topbar i {
+	font-size: 25px;
+}
+/*---------------------------------------------------
+	SECTION WRAPS
+---------------------------------------------------*/
+
+/* Header Wrap */
+#headerwrap {
+	background: url(../img/header-bg_2.jpg) no-repeat center top;
+	
+	
+}
+
+#headerwrap {
+	margin-top: 40px;
+	padding-top:140px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 610px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+#headerwrap h1 {
+	font-size: 42px;
+	color: black;
+	position: relative;
+    left: 245px;
+	}
+
+#headerwrap h3 {
+	font-size: 20px;
+	color: black;
+	position: relative;
+    right: 575px;
+    text-align: right;
+	}
+
+/* Intnro Wrap */
+
+#intro {
+	background: #2c3e50;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	color: white;
+} 
+
+#intro h5, p {
+	color: white;
+}
+
+#intro i {
+	color: white;
+	font-size: 20px;
+	padding-right: 8px;
+	vertical-align: middle;
+}
+
+#facts { 
+    
+    background: rgba(255,255,255,0.5) url(../img/ff.jpg) 0 0 repeat;
+   	margin-top: -16px;
+	padding-top:40px;
+	text-align:center;
+	
+	min-height: 350px;
+	width: 100%;
+	-webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+   
+}
+
+#facts h2 {
+	margin-bottom: 80px;
+	font-size: 42px;
+	color: white;
+	margin-top: 5px
+	text-align: center;
+    left: 245px;
+	}
+
+
+#facts {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    line-height: 1.42857;
+    color: white;
+    
+}
+.facts p {
+    font-size: 4.5rem;
+    color: #d2d2d2;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#skills {
+	background-color: #01445F;
+	margin-top: 10px;
+	padding-top:140px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+#skillswrap {
+	background: #2c3e50;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	color: white;
+}
+
+#skillswrap h5, p {
+	color: black;
+}
+
+#footwrap {
+	background: #2f2f2f;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#footwrap p {
+	color: white;
+}
+
+#footwrap h5 {
+	color: white;
+}
+
+
+#footwrap t {
+	font-weight: 700;
+}
+
+#footwrap i {
+	padding-right: 8px;
+	color: #1abc9c;
+}
+
+/* Copyright Wrap */
+
+#c {
+	background: #222222;
+	padding-top: 15px;
+	text-align: right;
+}
+
+#c p {
+	color: white
+}
+
+
+
+/* Global Values */
+
+.desc {
+	padding-top: 50px;
+}
+
+.desc p {
+	color: #2f2f2f;
+}
+
+.desc t {
+	color: #34495e;
+	font-weight: 700;
+}
+
+.desc imp {
+	padding: 6px;
+	color: white;
+	background: #34495e;
+}
+
+.desc more {
+	color: #95a5a6;
+}
+
+
+sm {
+	font-size: 12px;
+}
+
+.about-me .my-pic img {
+    border-radius: 50%;
+    border: 2px solid #dedede;
+    background: #fff;
+    padding: 7px;
+    box-shadow: 0 7px 10px #999;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.about-me .my-pic, .about-me .introduction {
+    margin-bottom 20px;
+    margin-top: 20px;
+}
+
+
+
+.technical-skills .skill .chart > span {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 2.1rem;
+}
+<style>…</style>
+* {
+    box-sizing: border-box;
+}
+
+.technical-skills .skill .chart {
+    position: relative;
+    display: inline-block;
+    color: #eee;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+@media (max-width: 767px) and (min-width: 481px)
+html {
+    font-size: 14px;
+}
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+::after, ::before {
+    box-sizing: border-box;
+}
+
+
+.center {
+    text-align: center;
+}
+
+
+.services, .technical-skills, .experiences, .portfolio {
+    padding: 80px 0 40px;
+}
+
+.services .service:hover i {
+    background: #222;
+    color: #fff;
+    border: 1px solid #222;
+}
+.services .service i {
+    font-size: 3.5rem;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    height: 95px;
+    width: 95px;
+    line-height: 95px;
+    color: #222;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+span.bar {
+    width: 35px;
+    height: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background: #fff;
+    display: block;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.center {
+    text-align: center;
+}
