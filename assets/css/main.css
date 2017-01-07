@@ -19,7 +19,7 @@ body {
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
+    font-family: "Frutiger";
     font-weight: 300;
     color: #333;
 }
@@ -161,7 +161,7 @@ a:after {
 
 /* Header Wrap */
 #headerwrap {
-	background: url(../img/header-bg_2.jpg) no-repeat center top;
+	background: url(../img/header-bg_3.jpg) no-repeat center top;
 	
 	
 }
@@ -169,7 +169,7 @@ a:after {
 
 #headerwrap {
 	margin-top: 40px;
-	padding-top:140px;
+	padding-top:70px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
@@ -191,16 +191,16 @@ a:after {
 #headerwrap h1 {
 	font-size: 42px;
 	color: black;
-	position: relative;
-    left: 245px;
+	
+    
 	}
 
 #headerwrap h3 {
 	font-size: 20px;
 	color: black;
 	position: relative;
-    right: 575px;
-    text-align: right;
+    
+    text-align: center;
 	}
 
 /* Intnro Wrap */
