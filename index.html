@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -9,7 +10,6 @@
 	
 
     <title>Jayendra Shinde Résumé</title>
-
 
 <!-- Open Sans Google font -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
@@ -55,30 +55,93 @@
 
   <body data-spy="scroll" data-offset="0" data-target="#nav">
 
-	<div id="section-topbar">
-		<div id="topbar-inner">
-			<div class="container">
-				<div class="row">
-					<div class="dropdown">
-						<ul id="nav" class="nav">
-							
-							<li class="menu-item"><a class="smoothScroll" href="#resume" title="Resume"><i class="icon-file"></i></a></li>
-							<li class="menu-item"><a class="smoothScroll" href="#research" title="Research"><i class="icon-briefcase"></i></a></li>
-							<li class="menu-item"><a class="smoothScroll" href="#contact" title="Contact"><i class="icon-envelope"></i></a></li>
-						</ul><!--/ uL#nav -->
-					</div><!-- /.dropdown -->
+	<canvas height="300" style="background: rgb(55, 58, 66)"></canvas>
+  <script src="js/d3.v4.0.0-alpha.33.min.js"></script>
+  <script>
 
-					<div class="clear"></div>
-				</div><!--/.row -->
-			</div><!--/.container -->
+(function() {
+			var 
+				// Obtain a reference to the canvas element
+				// using its id.
+				htmlCanvas = document.querySelector('canvas'),
+			
+        // Obtain a graphics context on the
+        // canvas element for drawing.
+        context = htmlCanvas.getContext('2d');
+ 
+			// Start listening to resize events and
+			// draw canvas.
+			initialize();
+ 
+			function initialize() {
+				// Register an event listener to
+				// call the resizeCanvas() function each time 
+				// the window is resized.
+				window.addEventListener('resize', resizeCanvas, false);
+				
+				// Draw canvas border for the first time.
+				resizeCanvas();
+			}
+								
+			function redraw() {
+        var width = htmlCanvas.width,
+          height = htmlCanvas.height;
+				var n = 400,
+        pi = Math.PI,
+        tau = 2 * pi;
 
-			<div class="clear"></div>
-		</div><!--/ #topaboutbar-inner -->
-	</div><!--/ #section-topbar -->
-	
-	
-	
+        var nodes = d3.range(n).map(function () {
+          var r = Math.random() * width / 3,
+            a = Math.random() * tau,
+            x = width / 2 + r * Math.cos(a),
+            y = height / 2 + r * Math.sin(a);
+          return {
+            x: x,
+            y: y,
+            vx: (height / 2 - y) * 0.006,
+            vy: (x - width / 2) * 0.006
+          };
+        });
 
+        var force = d3.forceSimulation(nodes)
+          .drag(0)
+          .alphaDecay(0)
+          .force("charge", d3.forceManyBody().strength(0.02))
+          .force("center", d3.forceCenter(width / 2, height / 2))
+          .on("tick", ticked);
+
+        var stroke = d3.scaleLinear()
+          .domain([0, 5])
+          .range(["rgb(205, 101, 83)", "rgb(150, 192, 206)"]);
+
+        function ticked() {
+          context.clearRect(0, 0, width, height);
+          context.lineWidth = 5;
+          context.lineCap = "circle";
+
+          for (var i = 0, node, vx, vy; i < n; ++i) {
+            node = nodes[i];
+            context.beginPath();
+            context.moveTo(node.x, node.y);
+            context.lineTo(node.x + node.vx * 3, node.y + node.vy * 3);
+            context.strokeStyle = stroke(node.vx * node.vx + node.vy * node.vy);
+            context.stroke();
+          }
+        }
+			}
+		
+			// Runs each time the DOM window resize event fires.
+			// Resets the canvas dimensions to match window,
+			// then draws the new borders accordingly.
+			function resizeCanvas() {
+				htmlCanvas.width = window.innerWidth;
+				htmlCanvas.height = 150;
+				redraw();
+			}
+		
+		})();
+
+  </script>
 
 	<!-- Start About Me Section -->
 		
@@ -93,8 +156,8 @@
 						<h2 class="h2">Jayendra Shinde</h2>
 						<div class="heading-line"></div>
 						<p class="introduce"></p>
-						<p class="intro"> Hi! My name is Jayendra Shinde. I am a 3rd year PhD student in Computational Biology, working under the supervision of Prof. Jessica Zucman-Rossi and Dr. Eric Letouze at INSERM UMR1162 in Paris. Born and raised in India, I moved to France to attend graduate school a couple of years ago. I am very fascinated with evidence-based science and data analytics. Hence, I switched from Biology to programming between my master's degree and my PhD.</p> </br>
-						<p class="intro"> Major interest areas:</p> </br>
+						<p class="intro"> I’m a postdoctoral researcher at  <a href="https://bmir.stanford.edu/">the Stanford Center for Biomedical Informatics Research</a> in the  <a href="http://med.stanford.edu/gevaertlab.html/">Gevaert Lab</a>.  Before joining Stanford University, I was a PhD student in Computational Biology, working under the supervision of Prof. Jessica Zucman-Rossi and Dr. Eric Letouze at <a href="http://zucmanlab.com">INSERM UMR1162</a> in Paris.</p> </br>
+						<p class="intro"> Major interest areas:</p> 
 						<p class="intro"> Cancer Genomics, Personalized Medicine, Medical Image Analysis, Healthcare, Data Science, Data Visualization, Health Informatics and Machine Learning </p> 
 					</div>
 				</div>
@@ -108,7 +171,6 @@
 	<!--EDUCATION DESCRIPTION -->
 	<div class="container desc">
 		<div class="row">
-
 				<div class="col-lg-2 col-lg-offset-1">
 					<h4></h4>
 				</div>
@@ -194,7 +256,7 @@
 					<h2 class="h2">Publications</h2>
 					<section id="research" name="resume"></section>
 					<div class="heading-line"></div>
-					<p class="main-para">1. <b>Shinde, J.</b>, Bayard, Q., Imbeaud, S., Hirsch, T.Z., Liu, F., Renault, V., Zucman-Rossi, J. and Letouzé, E. 'Palimpsest:  an  R  package  for  studying mutational  and  structural  variant  signatures  along  clonal  evolution  in  cancer.' Bioinformatics.(In Press)</p><a href="https://github.com/FunGeST/Palimpsest">[GitHub]</a>
+					<p class="main-para">1. <b>Shinde, J.</b>, Bayard, Q., Imbeaud, S., Hirsch, T.Z., Liu, F., Renault, V., Zucman-Rossi, J. and Letouzé, E. (2018) 'Palimpsest: an R package for studying mutational and structural variant signatures along clonal evolution in cancer', Bioinformatics.</p><a href="https://github.com/FunGeST/Palimpsest">[GitHub]</a><a href="https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/bty388/4996591?redirectedFrom=fulltext">[LINK]</a><a href="papers/2.pdf">[PDF]</a><p></p>
 <p></p>
 <p class="main-para">2. Letouzé, E.*, <b>Shinde, J.*</b>, Renault, V., Cauchy, G., Blanc, JF., Tubacher,E., Bayard, Q., Bacq, D.,
 Meyer,. V., Semhoun, J., Bioulac-Sage, P., Prévôt, S., Azoulay, D., Paradis, V., Imbeaud, S.,
@@ -218,51 +280,77 @@ Nature Publishing Group, 47(5), pp. 505–511. doi: 10.1038/ng.3252</p><a href="
 <b>* Authors contributed equally to this work.</b>			
 <p></p>
 
-
-	<section id="contact" name="contact"></section>
-	<!--FOOTER DESCRIPTION -->
-	<div id="footwrap">
-		<div class="container">
-			<div class="row">
-			
-				<div class="col-lg-2 col-lg-offset-1">
-					<h5>CONTACT</h5>
-				</div>
+<div class="title">
+	<h2 class="h2">Contact</h2>
+	<div class="heading-line"></div>
+	<p class="main-para">
+	<section id="resume" name="resume"></section>
 				<div class="col-lg-6">
+					<br/>
+					<br/>
 					<p><t>Email</t><br/>
-						jayendra.shinde91@gmail.com <br/>
-						jayendra.shinde@inserm.fr <br/>
+						jayendra at stanford dot edu<br/>
 					</p>
 					<p><t>Address</t><br/>
-						27, rue Juliette Dodu,<br/>
-						75010 Paris, <br/>
-						France. <br/>
+						Stanford Center for Biomedical Informatics Research (BMIR) <br/>
+						Department of Medicine, Stanford University <br/>
+						1265 Welch Rd, Stanford, CA 94305-5479 <br/>
+
 					</p>
-					<p><t>Phone</t><br/>
-						+33-771271991 <br/>
-					</p>
+			
 				</div>
-				<div class="col-lg-3">
-					<p><sm>SOCIAL LINKS</sm></p>
-					<p>
+				<div class="col-lg-2">
+					<p><sm> </sm></p>
 						
-						<a href="https://github.com/jayendrashinde91"><i class="icon-github"></i><span class="label">    Github</span></a></br>
-						<a href="https://fr.linkedin.com/in/jayendra-shinde-5809a074"><i class="icon-linkedin"></i><span class="label">  Linkedin</span></a></br>
-						<a href="https://twitter.com/zjay91?lang=en"><i class="icon-twitter"></i><span class="label">   Twitter</span></a></br>
+						<a href="https://github.com/jayendrashinde91"><img src="./logos/github.svg" width="56px"></br> 
+							</br>
+						<a href="https://fr.linkedin.com/in/jayendra-shinde-5809a074"><img src="./logos/linkedin.png" width="62px"></br>
+							</br>
+						<a href="https://twitter.com/zjay91?lang=en"><img src="./logos/twitter.png" width="56px"></a></br>
 
 					</p>
 				</div>
+
+</div>
+				<div class="col-lg-4">
+					<a class="twitter-timeline" data-tweet-limit="1" data-theme="light" data-link-color="#CD6553" href="https://twitter.com/zjay91">Tweets by Jayendra</a> 
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="showmobile" style="margin-top: -20px; margin-bottom: 10px;">
+          <hr style="margin-bottom: 5px;">You can follow me on Twitter at
+          <a href="https://twitter.com/zjay91">@zjay91</a>.
+
 			</div><!--/.row -->
 		</div><!--/.container -->
 	</div><!--/ #footer -->
-	
+      </div>
+
+
+<footer class="footer-global">
+
+	</div>
+			</div><!--/.row -->
+		</div><!--/.container -->
+	</div><!--/ #footer -->
 	<div id="c">
 		<div class="container">
-		<p>Copyright &copy; Jayendra Shinde 2017</p>
-		
+		<p>Copyright &copy; Jayendra Shinde 2018</p>
+		<div id="footer-navi">
+    <ul>
+        <li class="footer-item">
+      <a class="logo logo-stanford" href="http://www.stanford.edu" title="">Stanford University</a>
+    </li>
+    <li class="footer-item">
+      <a class="logo logo-stanford-som" href="http://med.stanford.edu" title="">Stanford School of Medicine</a>
+    </li>
+    <li class="footer-item">
+      <a class="logo logo-stanford-hospital" href="http://stanfordhealthcare.org" title="">Stanford Health Care</a>
+    </li>
+    
+    </ul>
+</div>
 		</div>
 	</div>
-	
+	</footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
