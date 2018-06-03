@@ -1,4 +1,4 @@
- /* Author: Carlos Alvarez
+#f85c37 /* Author: Carlos Alvarez
  * URL: http://alvarez.is
  *
  * Project Name: Jayendra Shinde
@@ -65,7 +65,7 @@ a:after {
 
  hr {
     display: block;
-    height: 1px;
+    height: 3px;
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
@@ -330,7 +330,7 @@ html {
 #c {
 	background: #222222;
 	padding-top: 15px;
-	text-align: right;
+	text-align: center;
 }
 
 #c p {
@@ -485,3 +485,12 @@ span.bar {
 .center {
     text-align: center;
 }
+
+#footer-navi ul {
+    font-size: 75%;
+}
+
+#footer-navi>ul>li {
+    display: inline-block;
+}
+

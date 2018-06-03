@@ -68,7 +68,7 @@ button, button:focus, a, a:hover, a:focus, input, input:active, input:focus, tex
 .services, 
 .technical-skills, 
 .experiences,
-.portfolio { padding:  80px 0 0px;}
+.portfolio { padding:  10px 0 0px;}
 .overlay {
 	position: absolute;
 	width: 100%;
@@ -1162,7 +1162,7 @@ a.selected-item:before {
 	position: relative;
 	padding: 10px 20px;
 	border-radius: 0 0 10px 10px;
-	font-weight: 700;
+	font-weight: 100;
 	text-transform: capitalize;
 	letter-spacing: 1.7px;
 	width: 130px;
@@ -1213,6 +1213,7 @@ a.selected-item:before {
 	-webkit-transform: translateY(70px);
 	transform: translateY(70px);
 }
+
 .footer .icon-wrapper .icon.fb:after {content: "\f231";}
 .footer .icon-wrapper .icon.tw:after {content: "\f243";}
 .footer .icon-wrapper .icon.gh:after {content: "\f233";}
@@ -1244,6 +1245,9 @@ a.selected-item:before {
 	letter-spacing: 1.5px;
 }
 
+.footer-global {
+  background-color: #333333;
+}
 /* End  Footer section */
 
 
