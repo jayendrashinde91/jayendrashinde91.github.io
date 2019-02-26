@@ -1,394 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-	
-
-    <title>Jayendra Shinde Résumé</title>
-
-<!-- Open Sans Google font -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-		<!-- Raleway Google font -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:700">
-		<!-- Favicons -->
-		
-		<link rel="apple-touch-icon" sizes="60x60" href="img/favico/apple-icon-60x60.png">
-		<!-- Ionicon fonts css file -->
-		<link rel="stylesheet" href="assets/css/ionicons.min.css">
-		<!-- magnific popup css file -->
-		<link rel="stylesheet" href="assets/css/magnific-popup.css">
-		<!-- Animate.css file -->
-		<link rel="stylesheet" href="assets/css/animate.css">
-		<!-- Owl carousel css file -->
-		<link rel="stylesheet" href="assets/css/owl.carousel.css">
-		<!-- Bootstrap file -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		<!-- Custom styles css file -->
-		<link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-    
-    <script src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/smoothscroll.js"></script> 
-    <script src="assets/js/Chart.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body data-spy="scroll" data-offset="0" data-target="#nav">
-
-	<canvas height="300" style="background: rgb(55, 58, 66)"></canvas>
-  <script src="js/d3.v4.0.0-alpha.33.min.js"></script>
-  <script>
-
-(function() {
-			var 
-				// Obtain a reference to the canvas element
-				// using its id.
-				htmlCanvas = document.querySelector('canvas'),
-			
-        // Obtain a graphics context on the
-        // canvas element for drawing.
-        context = htmlCanvas.getContext('2d');
- 
-			// Start listening to resize events and
-			// draw canvas.
-			initialize();
- 
-			function initialize() {
-				// Register an event listener to
-				// call the resizeCanvas() function each time 
-				// the window is resized.
-				window.addEventListener('resize', resizeCanvas, false);
-				
-				// Draw canvas border for the first time.
-				resizeCanvas();
-			}
-								
-			function redraw() {
-        var width = htmlCanvas.width,
-          height = htmlCanvas.height;
-				var n = 400,
-        pi = Math.PI,
-        tau = 2 * pi;
-
-        var nodes = d3.range(n).map(function () {
-          var r = Math.random() * width / 3,
-            a = Math.random() * tau,
-            x = width / 2 + r * Math.cos(a),
-            y = height / 2 + r * Math.sin(a);
-          return {
-            x: x,
-            y: y,
-            vx: (height / 2 - y) * 0.006,
-            vy: (x - width / 2) * 0.006
-          };
-        });
-
-        var force = d3.forceSimulation(nodes)
-          .drag(0)
-          .alphaDecay(0)
-          .force("charge", d3.forceManyBody().strength(0.02))
-          .force("center", d3.forceCenter(width / 2, height / 2))
-          .on("tick", ticked);
-
-        var stroke = d3.scaleLinear()
-          .domain([0, 5])
-          .range(["rgb(205, 101, 83)", "rgb(150, 192, 206)"]);
-
-        function ticked() {
-          context.clearRect(0, 0, width, height);
-          context.lineWidth = 5;
-          context.lineCap = "circle";
-
-          for (var i = 0, node, vx, vy; i < n; ++i) {
-            node = nodes[i];
-            context.beginPath();
-            context.moveTo(node.x, node.y);
-            context.lineTo(node.x + node.vx * 3, node.y + node.vy * 3);
-            context.strokeStyle = stroke(node.vx * node.vx + node.vy * node.vy);
-            context.stroke();
-          }
-        }
-			}
-		
-			// Runs each time the DOM window resize event fires.
-			// Resets the canvas dimensions to match window,
-			// then draws the new borders accordingly.
-			function resizeCanvas() {
-				htmlCanvas.width = window.innerWidth;
-				htmlCanvas.height = 150;
-				redraw();
-			}
-		
-		})();
-
-  </script>
-
-	<!-- Start About Me Section -->
-		
-		<div class="about-me clearfix" id="about-me">
-			<div class="container">
-				<div class="row">
-					<!-- Profile Pic -->
-					<div class="my-pic center col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-offset="200">
-						<img src="face1.png" alt="my profile">
-					</div>
-					<div class="introduction col-sm-8 col-xs-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-offset="200">
-						<h2 class="h2">Jayendra Shinde</h2>
-						<div class="heading-line"></div>
-						<p class="introduce"></p>
-						<p class="intro"> I’m a postdoctoral researcher at  <a href="https://bmir.stanford.edu/"> Stanford Center for Biomedical Informatics Research (BMIR) </a> in the  <a href="http://med.stanford.edu/gevaertlab.html/">Gevaert Lab</a>.  Before joining Stanford University, I was a PhD student in Computational Biology, working under the supervision of Prof. Jessica Zucman-Rossi and Dr. Eric Letouze at <a href="http://zucmanlab.com">INSERM UMR1162</a> in Paris.</p> </br>
-						<p class="intro"> Major interest areas:</p> 
-						<p class="intro"> Cancer Genomics, Personalized Medicine, Medical Image Analysis, Healthcare, Data Science, Data Visualization, Health Informatics and Machine Learning </p> 
-					</div>
-				</div>
-
-<hr>
-<div class="title">
-					<h2 class="h2">Education</h2>
-					<div class="heading-line"></div>
-					<p class="main-para">
-	<section id="resume" name="resume"></section>
-	<!--EDUCATION DESCRIPTION -->
-	<div class="container desc">
-		<div class="row">
-				<div class="col-lg-2 col-lg-offset-1">
-					<h4></h4>
-				</div>
-				<div class="col-lg-6">
-					<p><t>PhD in Computational Biology</t><br/>
-						*INSERM UMR 1162 <br/>
-						Génomique Fonctionnelle des Tumeurs Solides,<br/>
-						Equipe Labellisée Ligue Contre le Cancer, Institut Universitaire d'Hematologie (IUH), Paris, France.<br/>
-						*Université Paris Diderot, Paris, France.<br/>
-						<i>October 2014</i>
-					</p>
-				</div>
-				<div class="col-lg-3">
-					<p><strong>Graduation</strong><br/>
-					<sm>November 2017</sm>
-					</p>
-				</div>
-	
-				<div class="col-lg-6 col-lg-offset-3">
-					<p><t>Integrated Masters in Biotechnology</t><br/>
-						Institute of Bioinformatics and Biotechnology (IBB)<br/>
-						University of Pune <br/>
-						Pune, India <br/>
-						<i>July 2009 </i>
-					</p>
-				</div>
-				<div class="col-lg-3">
-					<p><sm>May 2014</sm></p>
-				</div>
-	
-		</div><!--/.row -->
-		<br>
-		<hr>
-	</div><!--/.container -->
-	</div>
-	
-	
-
-				<!-- Title -->
-				<div class="title">
-					<h2 class="h2">Research</h2>
-					<section id="research" name="resume"></section>
-					<div class="heading-line"></div>
-					<p class="main-para">Human cancers develop due to accumulation of somatic mutations which result from diverse processes including exposure to environmental mutagens such as UV light, tobacco smoke as well as endogenous DNA damaging processes like replication errors, spontaneous or enzymatic conversions. I develop computational methods in order to investigate these various patterns of mutational signatures that arise in cancer genomes. The major focus of my research is based on understanding the interaction of intracellular processes with diverse mutational processes and ultimately their contribution towards cancer evolution. Studying these complex patterns of mutational heterogeneity might be useful in effective patient stratification. My career goals are to use cancer metadata and omics data, with computational modeling, and big data analytics in order to improve cancer care.</p>
-				<p></p>
-<p></p>
-
-					<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					  <!-- Indicators -->
-					  <ol class="carousel-indicators">
-					    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					    <li data-target="#myCarousel" data-slide-to="1"></li>
-					    <li data-target="#myCarousel" data-slide-to="2"></li>
-					  </ol>
-
-					  <!-- Wrapper for slides -->
-					  <div class="carousel-inner">
-					    <div class="item active">
-					      <img src="images/img1.jpg" alt="img1">
-					    </div>
-
-					    <div class="item">
-					      <img src="images/img2.jpg" alt="img2">
-					    </div>
-
-					    <div class="item">
-					      <img src="images/img3.jpg" alt="img3">
-					    </div>
-
-					    <div class="item">
-					      <img src="images/img4.jpg" alt="img4">
-					    </div>
-					  </div>
-
-
-
-				</div>
-				<p></p>
-				<hr>
-<p></p>
-<p></p>
-<div class="title">
-					<h2 class="h2">Publications</h2>
-					<section id="research" name="resume"></section>
-					<div class="heading-line"></div>
-					
-					<p class="main-para">1. Bayard, Q., Meunier, L., Peneau, C., Renault, V., <b>Shinde, J.</b>, Nault, J.-C., Mami, I., Couchy, G., Amaddeo, G., Tubacher, E., Bacq, D., Meyer, V., La Bella, T., Debaillon-Vesque, A., Bioulac-Sage, P., Seror, O., Blanc J.-F., Calderaro, J., Deleuze, J.-F., Imbeaud, S., Zucman-Rossi, J. & Letouzé, E. (2018). Cyclin A2/E1 activation defines a hepatocellular carcinoma subclass with a rearrangement signature of replication stress. Nature Communications, 9(1), 5235. https://doi.org/10.1038/s41467-018-07552-9</p><a href="https://www.nature.com/articles/s41467-018-07552-9#disqus_thread">[LINK]</a><a href="papers/QB-etal.pdf">[PDF]</a><p></p>
-
-					<p class="main-para">2. <b>Shinde, J.</b>, Bayard, Q., Imbeaud, S., Hirsch, T.Z., Liu, F., Renault, V., Zucman-Rossi, J. and Letouzé, E. (2018) 'Palimpsest: an R package for studying mutational and structural variant signatures along clonal evolution in cancer', Bioinformatics.</p><a href="https://github.com/FunGeST/Palimpsest">[GitHub]</a><a href="https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/bty388/4996591?redirectedFrom=fulltext">[LINK]</a><a href="papers/1.pdf">[PDF]</a><p></p>
-					<p></p>
-					<p class="main-para">3. Letouzé, E.*, <b>Shinde, J.*</b>, Renault, V., Cauchy, G., Blanc, JF., Tubacher,E., Bayard, Q., Bacq, D.,
-					Meyer,. V., Semhoun, J., Bioulac-Sage, P., Prévôt, S., Azoulay, D., Paradis, V., Imbeaud, S.,
-					Deleuze, JF and Zucman-Rossi, J. (2017) Letouzé, E., Shinde, J., Renault, V., Couchy, G., Blanc, J.-F., Tubacher, E., Bayard, Q., Bacq, D., Meyer, V., Semhoun, J., Bioulac-Sage, P., Prévôt, S., Azoulay, D., Paradis, V., Imbeaud, S., Deleuze, J.-F. and Zucman-Rossi, J. (2017) ‘Mutational signatures reveal the dynamic interplay of risk factors and cellular processes during liver tumorigenesis’, Nature Communications. Nature Publishing Group, 8(1), p. 1315. doi: 10.1038/s41467-017-01358-x</p>
-					<a href="https://www.nature.com/articles/s41467-017-01358-x">[LINK]</a><a href="papers/2.pdf">[PDF]</a><p></p>
-
-					<p class="main-para">4. Pilati, C.*,<b>Shinde, J.*</b>, Alexandrov, L. B.*, Assié, G., André, T., Hélias-Rodzewicz, Z., Ducoudray, R.,
-					Le Corre, D., Zucman-Rossi, J., Emile, J.-F., Bertherat, J., Letouzé, E. and Laurent-Puig, P. (2017)
-					‘Mutational signature analysis identifies MUTYH deficiency in colorectal cancers and adrenocortical
-					carcinomas’, The Journal of Pathology, 242(1), pp. 10–15. doi: 10.1002/path.4880</p><a href="http://onlinelibrary.wiley.com.gate2.inist.fr/doi/10.1002/path.4880/abstract">[LINK]</a><a href="papers/3.pdf">[PDF]</a>
-
-					<p></p>
-					<p class="main-para">5. Schulze, K.*, Imbeaud, S.*, Letouzé, E.*, Alexandrov, L. B., Calderaro, J., Rebouissou, S., Couchy,
-					G., Meiller, C., <b>Shinde, J.</b>, Soysouvanh, F., Calatayud, A.-L., Pinyol, R., Pelletier, L., Balabaud, C.,
-					Laurent, A., Blanc, J.-F., Mazzaferro, V., Calvo, F., Villanueva, A., Nault, J.-C., Bioulac-Sage, P.,
-					Stratton, M. R., Llovet, J. M. and Zucman-Rossi, J. (2015) ‘Exome sequencing of hepatocellular
-					carcinomas identifies new mutational signatures and potential therapeutic targets’, Nature Genetics.
-					Nature Publishing Group, 47(5), pp. 505–511. doi: 10.1038/ng.3252</p><a href="http://www.nature.com/ng/journal/v47/n5/full/ng.3252.html">[LINK]</a><a href="papers/4.pdf">[PDF]</a>
-					<p></p>
-					<p></p>		
-					<b>* Authors contributed equally to this work.</b>			
-					<p></p>
-
-<div class="title">
-	<h2 class="h2">Contact</h2>
-	<div class="heading-line"></div>
-	<p class="main-para">
-	<section id="resume" name="resume"></section>
-				<div class="col-lg-6">
-					<br/>
-					<br/>
-					<p><t>Email</t><br/>
-						jayendra at stanford dot edu<br/>
-					</p>
-					<p><t>Address</t><br/>
-						Stanford Center for Biomedical Informatics Research (BMIR) <br/>
-						Department of Medicine, Stanford University <br/>
-						1265 Welch Rd, Stanford, CA 94305-5479 <br/>
-
-					</p>
-			
-				</div>
-				<div class="col-lg-2">
-					<p><sm> </sm></p>
-						
-						<a href="https://github.com/jayendrashinde91"><img src="./logos/github.svg" width="56px"></br> 
-							</br>
-						<a href="https://fr.linkedin.com/in/jayendra-shinde-5809a074"><img src="./logos/linkedin.png" width="62px"></br>
-							</br>
-						<a href="https://twitter.com/jayendradotcom?lang=en"><img src="./logos/twitter.png" width="56px"></a></br>
-
-					</p>
-				</div>
-
-</div>
-				<div class="col-lg-4">
-					<a class="twitter-timeline" data-tweet-limit="1" data-theme="light" data-link-color="#CD6553" href="https://twitter.com/jayendradotcom">Tweets by Jayendra</a> 
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <div class="showmobile" style="margin-top: -20px; margin-bottom: 10px;">
-          <hr style="margin-bottom: 5px;">You can follow me on Twitter at
-          <a href="https://twitter.com/jayendradotcom">@jayendradotcom</a>.
-
-			</div><!--/.row -->
-		</div><!--/.container -->
-	</div><!--/ #footer -->
-      </div>
-
-
-<footer class="footer-global">
-
-	</div>
-			</div><!--/.row -->
-		</div><!--/.container -->
-	</div><!--/ #footer -->
-	<div id="c">
-		<div class="container">
-		<p>Copyright &copy; Jayendra Shinde 2018</p>
-		<div id="footer-navi">
-    <ul>
-        <li class="footer-item">
-      <a class="logo logo-stanford" href="http://www.stanford.edu" title="">Stanford University</a>
-    </li>
-    <li class="footer-item">
-      <a class="logo logo-stanford-som" href="http://med.stanford.edu" title="">Stanford School of Medicine</a>
-    </li>
-    <li class="footer-item">
-      <a class="logo logo-stanford-hospital" href="http://stanfordhealthcare.org" title="">Stanford Health Care</a>
-    </li>
-    
-    </ul>
-</div>
-		</div>
-	</div>
-	</footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/bootstrap.js"></script>
-    <!-- Including jQuery file -->
-		<script src="assets/js/jquery-1.12.1.min.js"></script>
-		<!-- Including jQuery.appear file -->
-		<script src="assets/js/jquery.appear.js"></script>
-		<!-- Bootstrap js file -->
-		<script src="assets/js/bootstrap.min.js"></script>
-		<!-- easy pie chart -->
-		<script src="assets/js/jquery.easypiechart.min.js"></script>
-		<!-- NiceScroll plugin -->
-		<script src="assets/js/jquery.nicescroll.min.js"></script>
-		<!-- animate numbers plugin -->
-		<script src="assets/js/jquery.animateNumber.min.js"></script>
-		<!-- Horizontal bar chart -->
-		<script src="assets/js/bars.js"></script>
-		<!-- mixitup plugin -->
-		<script src="assets/js/jquery.mixitup.min.js"></script>
-		<!-- animated background header -->
-		<script src="assets/js/TweenLite.min.js"></script>
-		<!-- magnific popup js file -->
-		<script src="assets/js/magnific-popup.js"></script>
-		<!-- form validation file -->
-		<script src="assets/js/jqBootstrapValidation.js"></script>
-		<!-- Owl carousel js file -->
-		<script src="assets/js/owl.carousel.min.js"></script>
-		<!-- Google Map -->
-		<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-		<!-- Custom file  -->
-		<script src="assets/js/plugins.js"></script>
-		<!-- Wow.js file -->
-		<script src="assets/js/wow.min.js"></script>
-
-  </body>
+<html class="no-js gt-ie9" lang="en-US">
+   <head>
+      <meta charset="UTF-8">
+      <title>Citak Rugs Inc | Different. Distinctive. Original.™</title>
+      <meta name="description" content="Citak Rugs is a designer, an international importer, and North American distributor of modern and contemporary design area rugs.">
+      <meta name="viewport" content="user-scalable=0,initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Citak Rugs Inc | Different. Distinctive. Original.™">
+      <meta name="twitter:description" content="Citak Rugs is a designer, an international importer, and North American distributor of modern and contemporary design area rugs.">
+      <meta name="twitter:image:src" content="assets/img/2015/03/social-large.jpg">
+      <meta property="og:title" content="Citak Rugs Inc | Different. Distinctive. Original.™" />
+      <meta property="og:type" content="website" />
+      <meta property="og:description" content="Citak Rugs is a designer, an international importer, and North American distributor of modern and contemporary design area rugs." />
+      <meta property="og:url" content="https://www.citakrugs.ca/" />
+      <meta property="og:site_name" content="Citak Rugs Inc." />
+      <meta property="og:image" content="assets/img/2015/03/social.jpg" />
+      <link rel="shortcut icon" href="/assets/img/2015/03/favicon.ico?v=0.6654" />
+      <link type="text/plain" rel="author" href="assets/themes/cr/humans.txt" />
+      <link rel="apple-touch-icon-precomposed" href="assets/img/2015/03/touchicon.png?v=0.6654">
+      <link rel="stylesheet" href="assets/themes/cr/dist/css/main.min.css">
+      <!--[if IE]><script type="text/javascript" src="https://www.citakrugs.ca/assets/themes/cr/dist/js/ie/polyfiller.min.js?v=0.6654" ></script><![endif]-->
+      <script src="assets/themes/cr/dist/js/detect/detect.min.js"></script>
+      <script>var appVer=0.6654, pagePath="assets/themes/cr/", appBrand = {preload:{w:200, h:36, s:'assets/img/2015/02/preloader-200x36.png', r:'assets/img/2015/02/preloader.png'}};</script>
+      <link rel='dns-prefetch' href='//s.w.org' />
+      <script type="text/javascript">
+         window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"wp-includes\/js\/wp-emoji-release.min.js"}};
+         !function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+      </script>
+      <style type="text/css">
+         img.wp-smiley,
+         img.emoji {
+         display: inline !important;
+         border: none !important;
+         box-shadow: none !important;
+         height: 1em !important;
+         width: 1em !important;
+         margin: 0 .07em !important;
+         vertical-align: -0.1em !important;
+         background: none !important;
+         padding: 0 !important;
+         }
+      </style>
+      <link rel='https://api.w.org/' href='https://www.citakrugs.ca/wp-json/' />
+      <link rel="canonical" href="https://www.citakrugs.ca/" />
+      <link rel='shortlink' href='https://www.citakrugs.ca/' />
+      <link rel="alternate" type="application/json+oembed" href="https://www.citakrugs.ca/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.citakrugs.ca%2F" />
+      <link rel="alternate" type="text/xml+oembed" href="https://www.citakrugs.ca/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.citakrugs.ca%2F&#038;format=xml" />
+   </head>
+   <body class="full">
+      <main id="app" role="application">
+         <!-- Section Views -->
+         <div class="app-views">
+         <section class="view app-home current-section">
+            <div class="container default-content">
+               <div class="app-content--fill">
+                  <div class="scene">
+                     <div class="slide-list">
+                        <div class="slide" style="display:block;">
+                           <div class="img" style="background-image:url(assets/uploads/2014/11/urban-loft-scene-1600x1132.jpg);"/>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="overlays">
+                        <div class="gradient-top"></div>
+                        <div class="gradient-bottom"></div>
+                        <div class="base-overlay"></div>
+                     </div>
+                     <div class="content">
+                        <div class="soften"></div>
+                        <div class="region">
+                           <div class="offset pad-r-lr">
+                              <div class="info" role="heading">
+                                 <h1 class="title">Where exceptional spaces begin.™</h1>
+                                 <p class="description">Importer and distributor of the most exceptional and distinct rugs in the world.</p>
+                              </div>
+                              <div class="link">
+                                 <a class="btn--boxstandard home-box" href="collections/">
+                                    <div class="home-box-bg"></div>
+                                    <span>Discover the Collections</span>
+                                    <span class="l-arr">
+                                       <div class="icon icon--link"></div>
+                                    </span>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+         </section>
+         <section class="view app-collections"></section>
+         <section class="view app-collection"></section>
+         <section class="view app-collection-item"></section>
+         <section class="view app-about"></section>
+         <section class="view app-media"></section>
+         <section class="view app-events"></section>
+         <section class="view app-affiliations"></section>
+         <section class="view app-dealers"></section>
+         <section class="view app-contact"></section>
+         <section class="view app-not-found"></section>
+         </div>			<!-- App UI -->
+         <div class="app-ui">
+            <!-- Footer -->
+            <footer class="app-footer def-thm-light">
+               <div class="app-central">
+                  <div class="regions pad-r-lr">
+                     <div class="region-right">
+                        <p>T <a href="tel:+1 416 679 0570">416 679 0570</a> | F <a href="tel:+1 416 679 0571">416 679 0571</a> | E <a href="mailto:info@citakrugs.ca">info@citakrugs.ca</a></p>
+                        <p>185 Carlingview Dr. Unit 3, Toronto, ON M9W 5E8 CANADA</p>
+                     </div>
+                     <div class="region-left">
+                        <p>© 2019 CITAK Rugs Inc.</p>
+                        <p>All Rights Reserved.</p>
+                     </div>
+                     <div class="clear"></div>
+                  </div>
+               </div>
+            </footer>
+            <!-- Dashboard -->
+            <div class="app-dashboard">
+               <div class="base">
+                  <div class="segments"></div>
+               </div>
+               <nav class="navbar">
+                  <ul class="navlist">
+                     <li><a href="/">Home</a></li>
+                     <li><a href="/collections/">Collections</a></li>
+                     <li><a href="/about/">About</a></li>
+                     <li><a href="/dealer-information/">Dealers</a></li>
+                     <li><a href="/contact/">Contact</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <!-- Header -->
+            <header class="app-header def-thm-light">
+               <div class="fades">
+                  <div class="fade fade--dark"></div>
+                  <div class="fade fade--light"></div>
+               </div>
+               <div class="scroll-fades">
+                  <div class="fade fade--dark"></div>
+                  <div class="fade fade--light"></div>
+               </div>
+               <div class="app-central">
+                  <div class="menu pad-r-lr">
+                     <div class="region-left">
+                        <a href="/" role="button" class="logo">
+                           <div class="svg">
+                              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 width="139.31px" height="20.22px" viewBox="0 0 139.31 20.22" enable-background="new 0 0 139.31 20.22" xml:space="preserve">
+                                 <g>
+                                    <path fill="#010101" d="M5.62,13.36C0.3,13.09,0.82,6.42,5.96,6.63h1.67c0.49,0,0.99,0.36,1.02,1.01c-0.1,1.37-1.94,1.33-2.03,0
+                                       V6.97H5.96v0.67c0.07,2.21,3.24,2.29,3.36,0C9.28,6.46,8.34,5.96,7.63,5.96H4.61c-6.14,0-6.14,8.09,0,8.09h1.01V13.36z"/>
+                                    <path fill="#010101" d="M13.38,14.38c-0.27,5.32-6.94,4.79-6.73-0.34v-1.67c0-0.49,0.36-0.99,1.01-1.02c1.37,0.1,1.33,1.94,0,2.03
+                                       H6.98v0.66h0.67c2.21-0.07,2.29-3.24,0-3.36c-1.17,0.04-1.68,0.97-1.68,1.69v3.02c0,6.14,8.09,6.14,8.09,0v-1.01H13.38z"/>
+                                    <path fill="#010101" d="M14.38,6.64c5.32,0.27,4.79,6.94-0.34,6.73h-1.67c-0.49,0-0.99-0.36-1.02-1.01c0.1-1.37,1.94-1.33,2.03,0
+                                       v0.67h0.66v-0.67c-0.07-2.2-3.24-2.29-3.36,0c0.04,1.18,0.97,1.68,1.69,1.68h3.02c6.14,0,6.14-8.09,0-8.09h-1.01V6.64z"/>
+                                    <path fill="#010101" d="M6.64,5.62c0.27-5.32,6.94-4.79,6.73,0.34v1.67c0,0.49-0.36,0.99-1.01,1.02c-1.37-0.1-1.33-1.94,0-2.03
+                                       h0.67V5.96h-0.67c-2.2,0.07-2.29,3.24,0,3.36c1.18-0.04,1.68-0.97,1.68-1.69V4.61c0-6.14-8.09-6.14-8.09,0v1.01H6.64z"/>
+                                 </g>
+                                 <g>
+                                    <path fill="#010101" d="M43.31,7.2h-0.49c-0.43-2.77-2.75-6.49-5.84-6.49c-2.74,0-4.37,2.58-4.37,9.51c0,6.6,1.19,9.51,4.29,9.51
+                                       c3.51,0,5.54-3.48,5.92-5.68l0.16-0.92h0.41v6.66h-0.41c-0.11-0.41-0.43-1.11-1.01-1.11c-0.87,0-2.09,1.55-5.35,1.55
+                                       c-5.38,0-8.59-4.81-8.59-9.67c0-4.84,3.37-10.33,8.94-10.33c1.96,0,3.8,1.39,4.95,1.39c0.57,0,0.87-0.25,0.9-0.82h0.49V7.2z"/>
+                                    <polygon fill="#010101" points="53.58,19.29 55.79,19.29 55.79,1.14 53.58,1.14 53.58,0.65 62.23,0.65 62.23,1.14 60.02,1.14 
+                                       60.02,19.29 62.23,19.29 62.23,19.78 53.58,19.78 	"/>
+                                    <path fill="#010101" d="M75.24,19.29h2.53V1.14h-1.12c-3.53,0-4.43,2.47-4.84,5.46h-0.49V0.65h17.12V6.6h-0.49
+                                       c-0.41-2.99-1.3-5.46-4.84-5.46h-1.11v18.15h2.53v0.49h-9.29V19.29z"/>
+                                    <path fill="#010101" d="M103.28,13.15l-2.36-6.88h-0.05l-2.42,6.88H103.28z M93.88,19.29h0.35c1.03-0.08,1.52-0.73,1.85-1.63
+                                       l6.3-17.45h0.41l7.28,19.08h1.33v0.49h-8.1v-0.49h2.17l-1.98-5.65h-5.27l-1.3,3.83c-0.08,0.22-0.19,0.52-0.19,0.82
+                                       c0,0.9,0.76,1.01,1.3,1.01h0.76v0.49h-4.92V19.29z"/>
+                                    <path fill="#010101" d="M119.48,19.29h2.2V1.14h-2.2V0.65h8.91v0.49h-2.47v8.45l6.2-6.19c0.6-0.57,1.22-1.2,1.22-1.66
+                                       c0-0.35-0.35-0.6-1.41-0.6h-0.49V0.65h6.96v0.49h-0.71c-1.79,0-3.29,0.95-4.46,2.09l-3.88,3.86l8.01,12.2h1.96v0.49h-9.1v-0.49
+                                       h2.12l-6.01-9.32l-0.41,0.38v8.94h2.31v0.49h-8.75V19.29z"/>
+                                 </g>
+                              </svg>
+                           </div>
+                           <div class="img">
+                              <div class="logo-dark"><img src ="/assets/img/2015/02/logo-black-200x29.png" /></div>
+                              <div class="logo-light"><img src ="/assets/img/2015/02/logo-white-200x29.png" /></div>
+                           </div>
+                        </a>
+                     </div>
+                     <nav class="navbar">
+                        <ul class="navlist" role="menubar">
+                           <li><a href="/" class="active">Home</a></li>
+                           <li><a href="/collections/" class="">Collections</a></li>
+                           <li><a href="/about/" class="">About</a></li>
+                           <li><a href="/dealer-information/" class="">Dealers</a></li>
+                           <li><a href="/contact/" class="">Contact</a></li>
+                        </ul>
+                     </nav>
+                     <div class="region-right">
+                        <div class="strap">
+                           <div class="strap-shift">Different. Distinctive. Original.™</div>
+                        </div>
+                        <div class="app-navbox"></div>
+                     </div>
+                  </div>
+               </div>
+            </header>
+            <!-- Bar -->
+            <div class="app-bar"></div>
+            <!-- Loader UI -->
+            <div class="app-loader"></div>
+         </div>
+      </main>
+      <noscript>
+         <div class="noscript-warning">For the best experience, this site requires JavaScript to be enabled.</div>
+         <style type="text/css">
+            html {height: 100%;}
+            body {min-height:100%;}
+            #app, .app-views {position:static!important; min-height:100%;}
+            .app-views {height:100%;}
+            .app-header {visibility:visible;}
+            .app-footer {position:relative; visibility:visible;}
+            .current-section {display:block!important;}
+            .app-header .scroll-fades .fade--dark {visibility:visible;}
+            .app-header .navbar {display:block!important;}
+         </style>
+      </noscript>
+      <script src="assets/themes/cr/dist/js/vendor/vendor.modern.min.js"></script>
+      <script src="assets/themes/cr/dist/js/vendor/vendor.min.js"></script>
+      <!-- Looking for max? https://www.citakrugs.ca/assets/themes/cr/dist/js/app/app.bundle.max.js -->
+      <script src="assets/themes/cr/dist/js/app/app.bundle.min.js"></script>
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-61996663-1', 'www.citakrugs.ca');
+         ga('send', 'pageview');
+      </script>
+      <script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+   </body>
 </html>
